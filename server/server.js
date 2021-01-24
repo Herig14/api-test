@@ -10,7 +10,9 @@ app.use(express.static(__dirname + '/public'));
 app.get('/usuario', (req, res) => {
     res.json('get Usuario')
 })
-
+app.get('/', (req, res) => {
+    res.json('/test.json')
+})
 app.post('/usuario', (req, res) => {
     let body = req.body
     if (body.nombre === undefined) {
