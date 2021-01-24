@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
     // parse aplicationjson
 app.use(bodyParser.json())
-
+app.use(express.static(__dirname + '/public'));
 app.get('/usuario', (req, res) => {
     res.json('get Usuario')
 })
