@@ -2,6 +2,8 @@ require('./config/config')
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const fs = require('fs');
+
     // parse applicaction/
 app.use(bodyParser.urlencoded({ extended: false }))
     // parse aplicationjson
@@ -11,7 +13,10 @@ app.get('/usuario', (req, res) => {
     res.json('get Usuario')
 })
 app.get('/', (req, res) => {
-    res.json('/test.json')
+
+    let rawdata = fs.readFileSync('public/test.json');
+    let test = JSON.parse(rawdata);
+    res.json(test)
 })
 app.post('/usuario', (req, res) => {
     let body = req.body
